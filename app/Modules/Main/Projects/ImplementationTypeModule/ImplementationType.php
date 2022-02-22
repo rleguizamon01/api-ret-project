@@ -1,14 +1,14 @@
 <?php
 
-namespace {{ namespace }};
+namespace App\Modules\Main\Projects\ImplementationTypeModule;
 
-use {{ namespace }}\Database\{{ class }}Factory;
+use App\Modules\Main\Projects\ImplementationTypeModule\Database\ImplementationTypeFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Wildside\Userstamps\Userstamps;
 
-class {{ class }} extends Model
+class ImplementationType extends Model
 {
     use HasFactory, SoftDeletes, Userstamps;
 
@@ -17,6 +17,6 @@ class {{ class }} extends Model
 
     protected static function newFactory()
     {
-        return {{ class }}Factory::new();
+        return ImplementationTypeFactory::new();
     }
 }
