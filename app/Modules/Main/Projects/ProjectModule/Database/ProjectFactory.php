@@ -12,7 +12,7 @@ class ProjectFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => $this->faker->name()
+            'forum_post_id' => null
         ];
     }
 }
