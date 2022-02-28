@@ -14,7 +14,11 @@ class UpdateProjectDesignRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'design_url' => 'string',
+            'attachments' => 'json',
+            'title' => 'string',
+            'description' => 'string',
+            'forum_post_id' => 'exists:forum_posts,id'
         ];
     }
 }

@@ -14,7 +14,11 @@ class StoreProjectDesignRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'design_url' => 'required|string',
+            'attachments' => 'required|json',
+            'title' => 'required|string',
+            'description' => 'required|string',
+            'forum_post_id' => 'exists:forum_posts,id'
         ];
     }
 }
