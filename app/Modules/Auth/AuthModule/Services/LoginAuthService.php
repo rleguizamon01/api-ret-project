@@ -37,13 +37,12 @@ class LoginAuthService extends CommonAuthService
     private function catchResponseErrors($response)
     {
         switch($response->status()) {
+            case '200': return;
             case '400': case '404':
                 throw new WrongCredentialsException();
-        }
-
-        if($response->status() != '200') {
-            Log::error($response->body());
-            throw new UnauthorizedException('Client authentication failed');
+            default:
+                Log::error($response->body());
+                throw new UnauthorizedException('Client authentication failed');
         }
     }
 }
