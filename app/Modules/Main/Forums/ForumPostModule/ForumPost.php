@@ -3,6 +3,7 @@
 namespace App\Modules\Main\Forums\ForumPostModule;
 
 use App\Modules\Main\Forums\ForumPostModule\Database\ForumPostFactory;
+use App\Modules\Main\Projects\ProjectModule\Project;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -14,6 +15,11 @@ class ForumPost extends Model
 
     protected $fillable = [
     ];
+
+    public function project()
+    {
+        return $this->hasOne(Project::class);
+    }
 
     protected static function newFactory()
     {
