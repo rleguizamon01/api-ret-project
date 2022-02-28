@@ -4,12 +4,14 @@ namespace App\Modules\Main\UserModule;
 
 use App\Modules\Main\UserModule\Database\UserFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Laravel\Passport\HasApiTokens;
+use Wildside\Userstamps\Userstamps;
 
-class User extends Model
+class User extends Authenticatable
 {
-    use HasFactory, SoftDeletes;
+    use HasApiTokens, HasFactory, SoftDeletes, Userstamps;
 
     protected $fillable = [
         'first_name',
