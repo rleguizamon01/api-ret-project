@@ -11,6 +11,6 @@ class ProjectDesignSeeder extends BaseSeeder
     {
         if(!$this->shouldRun()) return;
 
-        ProjectDesign::factory()->count(5)->create();
+        ProjectDesign::factory()->count(20)->create();
     }
 }

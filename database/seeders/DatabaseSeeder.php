@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Modules\Main\Projects\ProjectDesignModule\Database\ProjectDesignSeeder;
 use App\Modules\Main\UserModule\Database\UserSeeder;
 use Illuminate\Database\Seeder;
 
@@ -15,7 +16,8 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call([
-            UserSeeder::class
+            UserSeeder::class,
+            ProjectDesignSeeder::class
         ]);
     }
 }

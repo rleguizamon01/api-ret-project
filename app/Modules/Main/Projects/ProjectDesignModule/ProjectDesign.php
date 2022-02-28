@@ -16,7 +16,7 @@ class ProjectDesign extends Model
 
     protected $fillable = [
         'project_id',
-        'figma_url',
+        'design_url',
         'attachments',
         'title',
         'description'
@@ -31,8 +31,6 @@ class ProjectDesign extends Model
     {
         return $this->belongsToMany(User::class,'projects_designers', 'project_design_id', 'designer_id');
     }
-
-
 
     protected static function newFactory()
     {
