@@ -7,5 +7,8 @@ include('routes/ApiModules/public.php');
 include('App\Modules\Auth\AuthModule\auth-routes.php');
 
 Route::group(['middleware' => 'auth:api'], function() {
-    include('routes/ApiModules/main.php');
+
+    Route::prefix('main')->group(function () {
+        include('routes/ApiModules/main.php');
+    });
 });
