@@ -18,7 +18,7 @@ class CreateProjectDesignsTable extends Migration
             $table->string('title');
             $table->text('description');
             $table->foreignId('project_id')->references('id')->on('projects');
-            $table->string('figma_url');
+            $table->string('design_url');
             $table->json('attachments');
             $table->timestamps();
             $table->softDeletes();
