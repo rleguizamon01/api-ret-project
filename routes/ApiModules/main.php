@@ -7,9 +7,9 @@ Route::prefix('users')->group(function() {
 });
 
 Route::prefix('projects')->group(function() {
-    include('../ApiModules/projects.php');
+    include('projects.php');
 });
 
 Route::prefix('forums')->group(function() {
-    include('../ApiModules/forums.php');
+    include('forums.php');
 });
