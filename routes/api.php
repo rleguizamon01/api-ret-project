@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
-include('./ApiModules/public.php');
+include('ApiModules/public.php');
 
 include('app/Modules/Auth/AuthModule/auth-routes.php');
 
