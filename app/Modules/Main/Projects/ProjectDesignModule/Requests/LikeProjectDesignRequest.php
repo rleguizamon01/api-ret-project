@@ -30,9 +30,8 @@ class LikeProjectDesignRequest extends FormRequest
     {
         $projectDesign = ProjectDesign::findOrFail(Request::route('id'));
 
-        $existsLikeFromUser = $projectDesign->interactions()
+        $existsLikeFromUser = $projectDesign->likes()
             ->where('user_id', Auth::id())
-            ->where('interaction_id', Interaction::LIKE)
             ->exists();
 
         if($existsLikeFromUser)

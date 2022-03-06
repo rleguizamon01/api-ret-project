@@ -18,9 +18,8 @@ class UnlikeProjectDesignService extends CommonProjectDesignService
         $projectDesign = ProjectDesign::findOrFail($id);
 
         $unlike = $projectDesign
-            ->interactions()
+            ->likes()
             ->where('user_id', Auth::id())
-            ->where('interaction_id', Interaction::LIKE)
             ->detach();
 
         return $unlike;
