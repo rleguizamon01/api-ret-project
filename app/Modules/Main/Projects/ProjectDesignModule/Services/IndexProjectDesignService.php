@@ -20,6 +20,9 @@ class IndexProjectDesignService extends CommonProjectDesignService
         else
             $projectDesigns->with($this->relations);
 
+        if($request->filled('liked_by'))
+            $projectDesigns->whereRelation('likes', 'user_id', '=', $request->liked_by);
+
         if($request->has('search_column'))
             $projectDesigns->where($request->search_column, $request->search_value);
 
