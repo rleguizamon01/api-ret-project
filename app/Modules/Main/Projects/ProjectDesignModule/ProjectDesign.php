@@ -2,6 +2,7 @@
 
 namespace App\Modules\Main\Projects\ProjectDesignModule;
 
+use App\Modules\Main\InteractionModule\Interaction;
 use App\Modules\Main\Projects\ProjectDesignModule\Database\ProjectDesignFactory;
 use App\Modules\Main\Projects\ProjectModule\Project;
 use App\Modules\Main\UserModule\User;
@@ -30,6 +31,11 @@ class ProjectDesign extends Model
     public function designers()
     {
         return $this->belongsToMany(User::class,'projects_designers', 'project_design_id', 'designer_id');
+    }
+
+    public function interactions()
+    {
+        return $this->morphToMany(Interaction::class, 'interactable', 'interactions_users');
     }
 
     protected static function newFactory()
