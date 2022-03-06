@@ -15,6 +15,7 @@ class CreateInteractionsTable extends Migration
     {
         Schema::create('interactions', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
             $table->timestamps();
             $table->softDeletes();
             $table->unsignedBigInteger('created_by')->nullable();
