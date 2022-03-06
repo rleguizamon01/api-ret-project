@@ -9,11 +9,16 @@ use App\Modules\Main\UserModule\User;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Facades\Auth;
 use Wildside\Userstamps\Userstamps;
 
 class ProjectDesign extends Model
 {
     use HasFactory, SoftDeletes, Userstamps;
+
+    protected $appends = [
+        'is_liked_by_auth'
+    ];
 
     protected $fillable = [
         'project_id',
@@ -36,6 +41,17 @@ class ProjectDesign extends Model
     public function interactions()
     {
         return $this->morphToMany(Interaction::class, 'interactable', 'interactions_users');
+    }
+
+    public function likes()
+    {
+        return $this->morphToMany(Interaction::class, 'interactable', 'interactions_users')
+            ->where('interaction_id', Interaction::LIKE);
+    }
+
+    public function getIsLikedByAuthAttribute()
+    {
+        return $this->likes()->where('user_id', Auth::id())->exists();
     }
 
     protected static function newFactory()
