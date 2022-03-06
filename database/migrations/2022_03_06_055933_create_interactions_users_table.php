@@ -17,6 +17,7 @@ class CreateInteractionsUsersTable extends Migration
             $table->id();
             $table->foreignId('interaction_id')->constrained();
             $table->morphs('interactable');
+            $table->foreignId('user_id')->constrained();
             $table->timestamps();
         });
     }
