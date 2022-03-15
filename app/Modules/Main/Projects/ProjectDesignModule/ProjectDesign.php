@@ -17,7 +17,7 @@ class ProjectDesign extends Model
     use HasFactory, SoftDeletes, Userstamps;
 
     protected $appends = [
-        'is_liked_by_auth'
+        'is_liked_by_auth',
     ];
 
     protected $fillable = [

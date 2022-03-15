@@ -21,13 +21,13 @@ class StoreProjectDesignService extends CommonProjectDesignService
 
     private function getProjectId($request): int
     {
-        // If the request has forum_post_id, it comes from an idea (a project can exist by another previous design or not)
+        // If the request has forum_post_id, it comes from an idea (project_desisgn_id will be null)
         if($request->filled('forum_post_id')) {
-            $project = Project::firstOrCreate(['forum_post_id', $request->forum_post_id]);
+            $project = Project::firstOrCreate(['forum_post_id' => $request->forum_post_id]);
             return $project->id;
         }
 
-        // Otherwise, it isn't related to an idea
+        // Otherwise, it is related to a design
         $newProject = Project::create([
             'forum_post_id' => null
         ]);

@@ -20,6 +20,9 @@ class IndexProjectDesignService extends CommonProjectDesignService
         else
             $projectDesigns->with($this->relations);
 
+        if($request->filled('show_total_likes'))
+            $projectDesigns->withCount('likes');
+
         if($request->filled('liked_by'))
             $projectDesigns->whereRelation('likes', 'user_id', '=', $request->liked_by);
 
@@ -27,7 +30,7 @@ class IndexProjectDesignService extends CommonProjectDesignService
             $projectDesigns->where($request->search_column, $request->search_value);
 
         if($request->has('order_by'))
-            $projectDesigns->orderBy($request->order_by, $request->order_direction);
+            $projectDesigns->orderBy($request->order_by, $request->order_direction ?? 'asc');
 
         if($request->has('page'))
             return $projectDesigns->paginate($request->page_size ?? 15);
