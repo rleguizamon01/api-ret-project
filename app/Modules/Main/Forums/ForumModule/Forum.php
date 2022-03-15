@@ -13,6 +13,7 @@ class Forum extends Model
     use HasFactory, SoftDeletes, Userstamps;
 
     protected $fillable = [
+        'title'
     ];
 
     protected static function newFactory()

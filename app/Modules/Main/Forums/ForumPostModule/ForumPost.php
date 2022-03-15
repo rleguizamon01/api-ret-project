@@ -14,6 +14,10 @@ class ForumPost extends Model
     use HasFactory, SoftDeletes, Userstamps;
 
     protected $fillable = [
+        'forum_id',
+        'title',
+        'description',
+        'attachments'
     ];
 
     public function project()
