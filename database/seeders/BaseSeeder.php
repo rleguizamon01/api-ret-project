@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\App;
 
 class BaseSeeder extends Seeder
 {
-    protected array $acceptedEnvironments = ['local', 'production'];
+    protected array $acceptedEnvironments = ['local', 'testing', 'production'];
 
     protected function shouldRun(): bool
     {
