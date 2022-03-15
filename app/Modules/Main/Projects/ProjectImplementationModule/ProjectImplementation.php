@@ -13,6 +13,12 @@ class ProjectImplementation extends Model
     use HasFactory, SoftDeletes, Userstamps;
 
     protected $fillable = [
+        'project_id',
+        'project_design_id',
+        'description',
+        'attachments',
+        'repository_url',
+        'host_url'
     ];
 
     protected static function newFactory()

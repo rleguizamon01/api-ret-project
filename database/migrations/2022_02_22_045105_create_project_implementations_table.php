@@ -16,7 +16,9 @@ class CreateProjectImplementationsTable extends Migration
         Schema::create('project_implementations', function (Blueprint $table) {
             $table->id();
             $table->foreignId('project_id')->references('id')->on('projects');
+            $table->foreignId('project_design_id')->nullable()->references('id')->on('project_designs');
             $table->text('description');
+            $table->json('attachments');
             $table->string('repository_url');
             $table->string('host_url');
             $table->timestamps();
